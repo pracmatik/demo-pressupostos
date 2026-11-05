@@ -1,0 +1,61 @@
+/* DEMOSTRACIÓ · mòbil i tauleta: res no ha de sortir de l'amplada de la pantalla */
+html,body{max-width:100%;overflow-x:hidden}
+img,svg,canvas{max-width:100%}
+
+@media (max-width:900px){
+  /* barra superior: es plega en dues línies si cal */
+  .topbar{flex-wrap:wrap;gap:8px;height:auto!important;padding:10px 14px!important}
+  .topbar .brand-right{flex-wrap:wrap;gap:8px;justify-content:flex-end}
+
+  /* columnes de la pantalla d'edició: una sola, sense que res empenyi */
+  .twocol{grid-template-columns:minmax(0,1fr)!important}
+  .twocol > *,.panel{min-width:0!important;max-width:100%}
+  .resum-row{flex-wrap:wrap;gap:4px}
+  .note textarea{max-width:100%}
+
+  /* taula del pressupost → targetes */
+  .tablewrap{overflow:visible!important}
+  .tablewrap table{display:block;width:100%!important;min-width:0!important;table-layout:auto}
+  .tablewrap thead{display:none}
+  #tb{display:block;width:100%}
+  #tb tr{display:block;width:100%;box-sizing:border-box}
+  #tb td{display:block;box-sizing:border-box;width:auto!important;min-width:0!important;max-width:none!important;border:none!important;padding:4px 0!important;text-align:left!important}
+  #tb td textarea,#tb td input{width:100%!important;max-width:100%!important;box-sizing:border-box}
+
+  #tb tr.part{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px 10px;padding:14px 12px!important;border-bottom:1px solid rgba(0,0,0,.12)}
+  #tb tr.part td.num{grid-column:1/-1;font-size:12px;opacity:.75}
+  #tb tr.part td.num input{width:6em!important}
+  #tb tr.part td.desc{grid-column:1/-1}
+  #tb tr.part td.ut::before,#tb tr.part td.amid::before,#tb tr.part td.preu::before,#tb tr.part td.imp::before{
+    display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;opacity:.6;margin-bottom:2px}
+  #tb tr.part td.ut::before{content:"Unitat"}
+  #tb tr.part td.amid::before{content:"Amidament"}
+  #tb tr.part td.preu::before{content:"Preu"}
+  #tb tr.part td.imp::before{content:"Import"}
+  #tb tr.part td.preu{display:block}
+  #tb tr.part td.calc{display:none}
+  #tb tr.part td.imp{grid-column:1/-1;font-weight:700;font-size:16px}
+  #tb tr.part td.act{grid-column:1/-1;display:flex!important;flex-wrap:wrap;gap:6px}
+
+  #tb tr.cap,#tb tr.sec{display:flex;flex-wrap:wrap;gap:4px 10px;padding:12px!important}
+  #tb tr.cap td.num,#tb tr.sec td.num{flex:0 0 auto}
+  #tb tr.cap td.desc,#tb tr.sec td.desc{flex:1 1 220px}
+  #tb tr.cap td.act,#tb tr.sec td.act{flex:1 1 100%;display:flex!important;flex-wrap:wrap;gap:6px}
+  #tb tr.subtotal,#tb tr.sectotal,#tb tr.grand,#tb tr.iva{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px!important}
+  #tb tr.subtotal td,#tb tr.sectotal td,#tb tr.grand td,#tb tr.iva td{padding:0!important}
+
+  /* finestres: dins la pantalla i amb desplaçament propi */
+  .modal-bg .modal{max-width:calc(100vw - 24px)!important;width:auto!important;max-height:calc(100vh - 24px);overflow:auto;box-sizing:border-box}
+  .pr-row{grid-template-columns:4.5em 1fr 6.5em!important}
+  .pr-row > div:nth-child(3){display:none}
+  .pr-row .pdesc{white-space:normal!important;overflow:visible!important;text-overflow:clip!important}
+}
+
+@media (max-width:560px){
+  #demo-cinta{font-size:12px!important;padding:8px 12px!important}
+  .topbar .brand-right #ctxBtn span,.topbar .brand-right .ctx-label{display:none}
+  #tb tr.part{grid-template-columns:1fr 1fr;}
+  #tb tr.part td.ut{grid-column:1/2}
+  #tb tr.part td.amid{grid-column:2/3}
+  #tb tr.part td.preu{grid-column:1/-1}
+}

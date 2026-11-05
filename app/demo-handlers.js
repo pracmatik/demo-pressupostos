@@ -22,12 +22,13 @@
     const comuns = A.filter(w => B.has(w)).length;
     return (2 * comuns) / (A.length + B.size);
   }
-  const PREUS = ((SEED.taules || {}).precios || []).map(p => ({ p, ca: paraules(p.descripcio_ca), es: paraules(p.descripcion), ut: unitat(p.unidad) }));
+  /* la base de preus es llegeix cada cop: si l'usuari hi carrega preus seus, ja compten */
+  const preus = () => ((window.DEMO_DB || {}).precios || []).filter(p => p.activo !== false).map(p => ({ p, ca: paraules(p.descripcio_ca), es: paraules(p.descripcion), ut: unitat(p.unidad) }));
 
   function cerca(partida) {
     const P = paraules(partida.desc), ut = unitat(partida.ut);
     let millor = null, nota = 0;
-    PREUS.forEach(x => {
+    preus().forEach(x => {
       if (x.ut !== ut) return;
       const s = Math.max(semblanca(P, x.ca), semblanca(P, x.es));
       if (s > nota) { nota = s; millor = x.p; }

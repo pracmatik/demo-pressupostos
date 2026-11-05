@@ -9,8 +9,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800&display=swap">
 <script defer src="track.js"></script>
 <style>
-:root{--paper:#F7F5F0;--ink:#111;--ink2:#4a4642;--ink3:#8a847c;--line:#e2ded8;--w:#fff;--obra:#F2541B;--groc:#f5c542;--verm:#d6453a}
+:root{--paper:#F7F5F0;--ink:#111;--ink2:#4a4642;--ink3:#8a847c;--line:#e2ded8;--w:#fff;--obra:#F2541B;--groc:#e9b949}
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 .env{max-width:860px;margin:0 auto;padding:0 20px}
 h1,h2,h3{font-family:'Inter Tight',Inter,sans-serif;letter-spacing:-.02em;line-height:1.15;margin:0}
@@ -20,72 +21,83 @@ a{color:var(--obra)}
 .logo{font-weight:800;font-size:20px;letter-spacing:-.03em;color:#f3f1ec;text-decoration:none}
 .logo span{color:var(--obra)}
 .kicker{display:block;margin:26px 0 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--obra);font-weight:700}
-.cab h1{font-size:clamp(30px,5.4vw,46px);margin-bottom:18px}
+.cab h1{font-size:clamp(28px,5.2vw,44px);margin-bottom:18px;max-width:760px}
 .cab p{color:#cfcac2;max-width:640px;font-size:17px}
-.boto{display:inline-block;margin:10px 10px 0 0;padding:13px 20px;border-radius:999px;background:var(--obra);color:#fff;font-weight:700;text-decoration:none}
+.botons{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.boto{display:inline-block;padding:13px 20px;border-radius:999px;background:var(--obra);color:#fff;font-weight:700;text-decoration:none;text-align:center}
 .boto.clar{background:transparent;border:1.5px solid #5a5650;color:#f3f1ec}
-.avis{margin-top:24px;padding:14px 18px;border-left:3px solid var(--obra);background:#1d1c1b;color:#cfcac2;font-size:14.5px;border-radius:0 8px 8px 0;max-width:660px}
-.avis b{color:#f3f1ec}
 section{padding:50px 0;border-bottom:1px solid var(--line)}
 section h2{font-size:clamp(22px,3.4vw,30px);margin-bottom:18px}
 .passos{list-style:none;margin:0;padding:0;counter-reset:p}
-.passos li{position:relative;padding:18px 0 18px 54px;border-top:1px solid var(--line)}
+.passos li{position:relative;padding:20px 0 20px 56px;border-top:1px solid var(--line)}
 .passos li:first-child{border-top:none}
-.passos li::before{counter-increment:p;content:counter(p);position:absolute;left:0;top:16px;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
-.passos b{display:block;font-size:17px;margin-bottom:4px}
-.passos p{margin:0;color:var(--ink2)}
-.fitxers{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.passos li::before{counter-increment:p;content:counter(p);position:absolute;left:0;top:18px;width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.passos b{display:block;font-size:17.5px;margin-bottom:4px}
+.passos p{margin:0 0 8px;color:var(--ink2)}
+.on{font-size:13.5px;color:var(--ink3);margin:0}
+.passos em{font-style:normal;font-weight:600;color:var(--ink)}
+.fitxers{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 .fitxer{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1.5px solid var(--ink);border-radius:10px;color:var(--ink);text-decoration:none;font-weight:600;font-size:14.5px;background:var(--w)}
-.colors{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 0}
-.col{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--ink2)}
-.col i{width:14px;height:14px;border-radius:4px;display:inline-block}
-.taula{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.marques{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-size:14px;color:var(--ink2)}
+.marques span{display:inline-flex;align-items:center;gap:7px}
+.marques i{width:14px;height:14px;border-radius:4px;display:inline-block;flex:0 0 auto}
+.prova{margin-top:10px;padding:12px 14px;border-left:3px solid var(--obra);background:var(--w);border-radius:0 8px 8px 0;font-size:14.5px;color:var(--ink2)}
+.taula{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
 .caixa{background:var(--w);border:1px solid var(--line);border-radius:12px;padding:20px}
 .caixa h3{font-size:16px;margin-bottom:8px}
 .caixa p{font-size:14.5px;color:var(--ink2);margin:0}
-.caixa.real h3{color:#1f7a3f}.caixa.sim h3{color:#9a6a00}.caixa.off h3{color:var(--ink3)}
+.caixa.igual h3{color:#1f7a3f}.caixa.simple h3{color:#9a6a00}.caixa.nou h3{color:var(--obra)}.caixa.off h3{color:var(--ink3)}
 .peu{padding:32px 0 50px;font-size:14px;color:var(--ink3)}
-@media (max-width:560px){.cab{padding:40px 0 36px}.passos li{padding-left:48px}}
+@media (max-width:560px){
+  .cab{padding:40px 0 36px}
+  .cab p{font-size:16px}
+  .botons .boto{flex:1 1 100%}
+  .passos li{padding-left:50px}
+  .passos li::before{width:34px;height:34px}
+  .fitxer{flex:1 1 100%;justify-content:center}
+}
 </style>
 </head>
 <body>
 <header class="cab"><div class="env">
   <a class="logo" href="https://www.pracmatik.com" target="_blank" rel="noopener">pracmatik<span>.</span></a>
   <span class="kicker">Demostració per a Construnext · Estudis</span>
-  <h1>Puja un amidament i en surt el pressupost.</h1>
-  <p>És una còpia d'un sistema que tenim funcionant en una constructora, amb totes les dades canviades. La podeu obrir i tocar tant com vulgueu: no afecta res real.</p>
-  <a class="boto" href="app/">Obrir la demo</a>
-  <a class="boto clar" href="#que-provar">Què provar primer</a>
-  <div class="avis"><b>Tot és inventat</b>, de l'obra als preus. <b>I res surt del vostre ordinador:</b> la demo funciona només al navegador, sense servidor. Si hi pugeu un BC3 vostre, es llegeix aquí mateix i no s'envia enlloc. En recarregar la pàgina, tot torna a l'inici.</div>
+  <h1>Els vostres amidaments, amb els vostres preus, de tornada a Presto.</h1>
+  <p>És una còpia d'un sistema que tenim funcionant per a un client nostre, amb dades inventades. Proveu-la amb fitxers vostres: el que hi pugeu es llegeix al vostre navegador i no surt del vostre ordinador.</p>
+  <div class="botons">
+    <a class="boto" href="app/">Obrir la demo</a>
+    <a class="boto clar" href="#com-provar">Com provar-la</a>
+  </div>
 </div></header>
 
 <main>
-<section id="que-provar"><div class="env">
-  <h2>Què provar, en deu minuts</h2>
+<section id="com-provar"><div class="env">
+  <h2>Com provar-ho amb un cas vostre, en quatre passos</h2>
   <ol class="passos">
-    <li><b>Obriu el pressupost d'exemple</b><p>A l'historial hi ha una reforma d'oficines de 36 partides ja muntada. Cada preu ve de la base de preus i porta un avís perquè el confirmeu. Les dues partides que no hi són, la mampara acústica i la pantalla interactiva, queden a zero i marcades com a <em>pendent de valoració</em>: el preu el poseu vosaltres.</p>
-      <div class="colors"><span class="col"><i style="background:var(--groc)"></i>avís: preu proposat, cal confirmar-lo</span><span class="col"><i style="background:var(--verm)"></i>pendent de valoració: no hi és a la base</span></div></li>
-    <li><b>Feu-ne un de nou amb un BC3</b><p>Nou pressupost, pujar amidament, i trieu el BC3 d'exemple. O millor, un BC3 vostre de Presto o TCQ: es llegeix exacte, amb capítols i numeració, sense IA. Surt muntat en uns segons.</p>
-      <div class="fitxers"><a class="fitxer" href="exemples/amidaments_exemple.bc3" download>⬇ BC3 d'exemple</a><a class="fitxer" href="exemples/amidaments_exemple.xlsx" download>⬇ Excel d'exemple</a></div></li>
-    <li><b>Proveu també l'Excel</b><p>Un Excel d'amidaments amb columnes de codi, descripció, unitat i quantitat es llegeix cel·la a cel·la. Si l'Excel té una altra forma, ho diu en lloc de llegir-lo malament.</p></li>
-    <li><b>Mireu d'on surt cada preu</b><p>Al menú d'usuari, a dalt a la dreta, hi ha la base de preus. Canvieu-ne un i deseu-lo: queda apuntat qui l'ha canviat, quan, i el preu d'abans i el de després. Al vostre cas, aquesta base es munta amb la vostra base de Presto i amb pressupostos que ja heu fet.</p></li>
-    <li><b>Toqueu i exporteu</b><p>Canvieu el coeficient o afegiu partides, i exporteu en Excel o PDF. Abans d'exportar, la mateixa eina us ensenya les partides que encara estan per revisar.</p></li>
+    <li><b>Tots els pressupostos, en un sol lloc</b>
+      <p>En obrir la demo veureu sis pressupostos d'exemple d'oficines, hotel, clínica, botiga i restaurant, a Barcelona, Madrid, Palma i Bilbao. Cada un amb qui l'ha fet, quan i en quin estat està. Els podeu cercar per obra i filtrar per estat.</p></li>
+    <li><b>Carregueu els vostres preus</b>
+      <p>Al menú d'usuari, a dalt a la dreta, obriu la base de preus i premeu <em>Carregar preus d'un BC3</em>. Pugeu-hi un pressupost vostre ja fet, amb preus: les seves partides entren a la base. Qualsevol canvi de preu queda apuntat amb qui l'ha fet, quan, i el preu d'abans i el de després.</p>
+      <p class="on">Així es munta la base a la versió real: amb la vostra base de Presto i amb pressupostos que ja heu fet. Aquí en veieu el principi amb un sol fitxer.</p></li>
+    <li><b>Pugeu un amidament</b>
+      <p>Nou pressupost, pujar amidament, i trieu un BC3 de Presto o TCQ o un Excel amb columnes de codi, descripció, unitat i quantitat. Es llegeix exacte, amb els seus capítols, i cada partida busca el seu preu a la base.</p>
+      <div class="marques"><span><i style="background:var(--groc)"></i>preu trobat a la base: porta un avís perquè el confirmeu</span><span><i style="background:#d9d4cc"></i>no hi és: queda a zero, pendent de valoració</span></div>
+      <p class="on" style="margin-top:8px">Si encara no voleu fer servir fitxers vostres, aquí en teniu un d'exemple:</p>
+      <div class="fitxers"><a class="fitxer" href="exemples/amidaments_exemple.bc3" download>⬇ Amidament d'exemple (BC3)</a><a class="fitxer" href="exemples/amidaments_exemple.xlsx" download>⬇ Amidament d'exemple (Excel)</a></div></li>
+    <li><b>Torneu-lo a Presto</b>
+      <p>Amb el pressupost obert, el botó <em>BC3 (prova)</em> el baixa en el format d'intercanvi de Presto i TCQ, amb capítols, partides, amidaments i preus. Abans de baixar-lo, la demo el torna a llegir i comprova que hi ha les mateixes partides i el mateix total.</p>
+      <div class="prova"><b>És una primera versió.</b> Segueix l'estàndard BC3, però encara no l'hem obert amb el vostre Presto ni amb TCQ. Obriu-lo i digueu-nos si entra net: si no, és el primer que ajustem.</div></li>
   </ol>
 </div></section>
 
 <section><div class="env">
-  <h2>Què és real i què no, en aquesta demo</h2>
+  <h2>Què hi ha de real en aquesta demo</h2>
   <div class="taula">
-    <div class="caixa real"><h3>Funciona igual que la real</h3><p>La lectura de BC3 i d'Excel i tot el que ve després, de la base de preus amb el seu registre de canvis fins a l'exportació a Excel i PDF.</p></div>
-    <div class="caixa sim"><h3>Simulat</h3><p>La lectura de PDF i Word, que a la versió real fa la IA: aquí carrega l'amidament d'exemple. I el cercador de preus: a la real és una IA sobre la vostra base, aquí és un cercador simple de paraules.</p></div>
-    <div class="caixa off"><h3>Apagat</h3><p>L'assistent per dir canvis amb paraules i qualsevol enviament de correu. A la demo no surt res cap a ningú.</p></div>
+    <div class="caixa igual"><h3>Igual que la versió real</h3><p>La lectura de BC3 i d'Excel, la base de preus amb el seu registre de canvis, els coeficients, la revisió de partides pendents abans d'exportar i l'exportació a Excel i PDF.</p></div>
+    <div class="caixa simple"><h3>Simplificat</h3><p>El cercador de preus: a la real és una IA sobre la vostra base; aquí és una comparació simple de paraules, i per això no serveix per jutjar l'encert. Els PDF i els Word els llegeix la IA, que aquí està apagada: carreguen l'exemple. Si ens passeu un PDF vostre, us n'ensenyem el resultat.</p></div>
+    <div class="caixa nou"><h3>Fet per a vosaltres</h3><p>La sortida en BC3 i la càrrega de preus des d'un BC3 no les té el client per a qui es va fer el sistema. Són les peces que muntaríem a mida per a Construnext, i aquí en podeu provar una primera versió.</p></div>
+    <div class="caixa off"><h3>Apagat</h3><p>L'assistent per demanar canvis amb paraules i qualsevol enviament de correu.</p></div>
   </div>
-</div></section>
-
-<section><div class="env">
-  <h2>El que es fa a mida per a vosaltres</h2>
-  <p>La demo exporta en Excel i PDF. Per a Construnext, la sortida que us interessa és tornar el pressupost a Presto i al vostre programa de control d'obra, i això es munta a mida per als vostres formats. També el que surt a la pantalla i als documents s'adapta a la vostra manera de treballar.</p>
-  <p>El que es veu aquí és com ho vol el client per a qui es va fer. Si ens dieu què us sobra i què us falta, us ho posem per escrit.</p>
 </div></section>
 </main>
 
