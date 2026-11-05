@@ -40,7 +40,7 @@
 
   const AVIS_LECTURA = 'DEMOSTRACIÓ · Aquest document s\'hauria de llegir amb la IA, que a la demo està apagada. Es mostra l\'amidament d\'exemple. Els BC3 (Presto, TCQ…) i els Excel amb columnes de codi, descripció, unitat i quantitat sí que es llegeixen de veritat.';
   window.DEMO_HANDLERS = {
-    'casador': cos => ({ results: (cos.partides || []).map(cerca) }),
+    'casador': cos => { try { window.DEMO_AVIS_CERCADOR && window.DEMO_AVIS_CERCADOR(); } catch (_) {} return { results: (cos.partides || []).map(cerca) }; },
     'ingesta': cos => {
       const marques = cos || {};
       if (marques.excel_transcrit) return { rows: [], avisos: [], resum: '' };

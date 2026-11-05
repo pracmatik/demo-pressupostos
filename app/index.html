@@ -538,13 +538,16 @@ td.act{width:124px}
 .act-tag-w{border-color:#c98a00;color:#9a6a00}.act-sub{font-size:13px;margin:12px 0 6px}.act-nota{font-size:11.5px;color:var(--muted-fg);margin:6px 2px}
 @media (max-width:760px){.act-modal{padding:14px}.act-bar input[type=date]{flex:1}}
 </style>
-<link rel="stylesheet" href="demo-mobil.css?v=1"><style id="demo-css">
-#intranetBox,#actCsv,#expCsv,#csvBlkModal,#cartaBtn,#cartaModal,#indBtn,#chatFab,#chatPanel,#pmPwd,#pmUsers,#pmLogout,#reglasBtn,#ctxBtn,#chModal .ch-card.rec,.reinforced-chk{display:none!important}
+<link rel="stylesheet" href="demo-mobil.css?v=2"><style id="demo-css">
+#intranetBox,#actCsv,#expCsv,#csvBlkModal,#cartaBtn,#cartaModal,#indBtn,#chatFab,#chatPanel,#pmPwd,#pmUsers,#pmLogout,#reglasBtn,#ctxBtn,.empbtn,.bastbtn,#chModal .ch-card.rec,.reinforced-chk{display:none!important}
 #demo-cinta{position:sticky;top:0;z-index:50;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;
   padding:9px 16px;background:#111;color:#f3f1ec;font:600 13px/1.45 system-ui,-apple-system,'Segoe UI',sans-serif;text-align:center}
 #demo-cinta b{color:#F2541B}#demo-cinta a{color:#F2541B;text-decoration:underline}
+#demoAvisCercador{position:fixed;left:16px;bottom:16px;z-index:70;max-width:440px;padding:14px 16px;border-radius:12px;background:#111;color:#f3f1ec;font:500 13.5px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+#demoAvisCercador b{color:#F2541B}#demoAvisCercador .btn{margin-top:10px;background:#F2541B;color:#fff;border:none}
+@media (max-width:560px){#demoAvisCercador{left:10px;right:10px;bottom:10px;max-width:none}}
 </style></head>
-<body><div id="demo-cinta"><span><b>DEMOSTRACIÓ</b> · Dades inventades. Els fitxers que hi pugeu no surten del vostre navegador.</span><a href="../">Guia de la demo</a></div>
+<body><div id="demo-cinta"><span id="demo-cinta-text"><b>DEMOSTRACIÓ</b> · Dades inventades.</span><a id="demo-cinta-guia" href="../">Guia de la demo</a><a id="demo-cinta-reinicia" href="#">Tornar a començar</a></div>
 
 
 <div id="vLogin">
@@ -3725,10 +3728,10 @@ document.head.appendChild(s);
 
 async function ensureLibs() {
 if (_libsLoaded) return;
-if (!window.XLSX) await loadScript("https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js", "sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT");
+if (!window.XLSX) await loadScript("lib/sheetjs/xlsx-0.20.3/package/dist/xlsx.full.min.js", "sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT");
 if (!window.pdfjsLib) {
-await loadScript("https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js", "sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e");
-if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+await loadScript("lib/npm/pdfjs-dist@3.11.174/build/pdf.min.js", "sha384-/1qUCSGwTur9vjf/z9lmu/eCUYbpOTgSjmpbMQZ1/CtX2v/WcAIKqRv+U1DUCG6e");
+if (window.pdfjsLib) pdfjsLib.GlobalWorkerOptions.workerSrc = "lib/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
 }
 _libsLoaded = true;
 }
@@ -3874,7 +3877,7 @@ if (_fora.length) window._extractWarn = (window._extractWarn ? window._extractWa
 return _txt;
 }
 if (nm.endsWith(".docx")) {
-if (!window.mammoth) await loadScript("https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js", "sha384-/cXAMbzovUIKbBERjPmR3SnPTh8siWr5lsvFYj1Uq4XP0yaJUZJmsh0YXyGv5P0y");
+if (!window.mammoth) await loadScript("lib/npm/mammoth@1.8.0/mammoth.browser.min.js", "sha384-/cXAMbzovUIKbBERjPmR3SnPTh8siWr5lsvFYj1Uq4XP0yaJUZJmsh0YXyGv5P0y");
 const buf = await file.arrayBuffer();
 const res = await mammoth.convertToHtml({
 arrayBuffer: buf
@@ -18935,8 +18938,8 @@ avisaPracmatik("ACTA DE VALIDACIÓ NO REGISTRADA", "Excepció desant l'acta · O
 }
 
 async function loadXlsLibs() {
-if (!window.ExcelJS) await loadScript("https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js", "sha384-Pqp51FUN2/qzfxZxBCtF0stpc9ONI6MYZpVqmo8m20SoaQCzf+arZvACkLkirlPz");
-if (!window.JSZip) await loadScript("https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js", "sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG");
+if (!window.ExcelJS) await loadScript("lib/npm/exceljs@4.4.0/dist/exceljs.min.js", "sha384-Pqp51FUN2/qzfxZxBCtF0stpc9ONI6MYZpVqmo8m20SoaQCzf+arZvACkLkirlPz");
+if (!window.JSZip) await loadScript("lib/npm/jszip@3.10.1/dist/jszip.min.js", "sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG");
 }
 
 const _PARITAT_LABEL = /TOTAL\s+(PRESSUPOST|PRESUPUESTO)/i;
@@ -19343,8 +19346,8 @@ btn.disabled = false;
 
 async function ensurePdfMake() {
 if (window.__pdfmakeOK && window.pdfMake) return;
-await loadScript("https://cdn.jsdelivr.net/npm/pdfmake@0.2.23/build/pdfmake.min.js", "sha384-8Fgcdr1c4x0qG8ByTWhXwvf1iBa6tQReFeLNBSkvCN9F+/RZuP1ha8RUydfLSGeG");
-await loadScript("https://cdn.jsdelivr.net/npm/pdfmake@0.2.23/build/vfs_fonts.js", "sha384-ZiMMZvHUP692kyJimOQHoH2VdTrbcEwHaQfitnsxsR8tY0ntoRbPxIA6p+9yNNbz");
+await loadScript("lib/npm/pdfmake@0.2.23/build/pdfmake.min.js", "sha384-8Fgcdr1c4x0qG8ByTWhXwvf1iBa6tQReFeLNBSkvCN9F+/RZuP1ha8RUydfLSGeG");
+await loadScript("lib/npm/pdfmake@0.2.23/build/vfs_fonts.js", "sha384-ZiMMZvHUP692kyJimOQHoH2VdTrbcEwHaQfitnsxsR8tY0ntoRbPxIA6p+9yNNbz");
 if (!window.pdfMake) throw new Error("pdfmake");
 window.__pdfmakeOK = true;
 }
@@ -21881,7 +21884,7 @@ if (typeof module !== "undefined" && module.exports) module.exports = api; else 
     <div class="ind-fld"><label class="ind-lbl">Preu ofertat (€/unitat)</label><input id="irPreu" inputmode="decimal" placeholder="72,50"></div>
     <div class="ind-fld"><label class="ind-lbl">Unitat</label><input id="irUt"></div>
   </div>
-  <div class="ind-fld" style="margin-top:10px"><label class="ind-lbl">Marge la constructora (× sobre el preu de l'industrial)</label>
+  <div class="ind-fld" style="margin-top:10px"><label class="ind-lbl">Marge (× sobre el preu de l'industrial)</label>
     <div class="ind-margebtns"><button class="mini" data-irm="1,10">× 1,10</button><button class="mini" data-irm="1,35">× 1,35</button><button class="mini" data-irm="1,485">× 1,485</button><input id="irMarge" style="width:90px;font:inherit;font-size:13.5px;border:1px solid var(--border);border-radius:9px;padding:6px 9px" value="1,485"></div>
     <div class="ind-note">Marge per a preus d'industrial <b>externs</b> — es precarrega amb el coeficient vigent de la configuració (per defecte ×1,485 = 1,10 × 1,35; editable per un admin al panell Industrials). Els preus del catàleg ja porten el coeficient aplicat → ja són preu final (no s'hi torna a aplicar).</div>
     <div id="irCoefWarn" style="display:none;margin-top:6px;font-size:12.5px;color:var(--warn);background:var(--warn-bg);border:1px solid var(--warn-bd);border-radius:9px;padding:6px 9px"></div>
@@ -21988,7 +21991,7 @@ prep_sense_mail: "Aquest industrial no té adreça de correu.",
 prep_err: "No s'ha pogut preparar l'esborrany",
 preu_of: "Preu ofertat (€/u)",
 unitat: "Unitat",
-marge: "Marge la constructora",
+marge: "Marge",
 pvp: "PVP resultant (€/u)",
 nota_marge: "Marge ×1,485 (1,10 × 1,35) sobre preus d'industrial externs. El catàleg ja és preu final.",
 aplicar: "Aplicar PVP a la partida",
@@ -22093,7 +22096,7 @@ prep_sense_mail: "Este industrial no tiene dirección de correo.",
 prep_err: "No se ha podido preparar el borrador",
 preu_of: "Precio ofertado (€/u)",
 unitat: "Unidad",
-marge: "Margen la constructora",
+marge: "Margen",
 pvp: "PVP resultante (€/u)",
 nota_marge: "Margen ×1,485 (1,10 × 1,35) sobre precios de industrial externos. El catálogo ya es precio final.",
 aplicar: "Aplicar PVP a la partida",
@@ -22192,7 +22195,7 @@ Unitat: "Unidad",
 "Cancel·lar": "Cancelar",
 "Registrar resposta": "Registrar respuesta",
 "Preu ofertat (€/unitat)": "Precio ofertado (€/unidad)",
-"Marge la constructora (× sobre el preu de l'industrial)": "Margen la constructora (× sobre el precio del industrial)",
+"Marge (× sobre el preu de l'industrial)": "Margen (× sobre el precio del industrial)",
 "Marge per a preus d'industrial": "Margen para precios de industrial",
 externs: "externos",
 "— es precarrega amb el coeficient vigent de la configuració (per defecte ×1,485 = 1,10 × 1,35; editable per un admin al panell Industrials). Els preus del catàleg ja porten el coeficient aplicat → ja són preu final (no s'hi torna a aplicar).": "— se precarga con el coeficiente vigente de la configuración (por defecto ×1,485 = 1,10 × 1,35; editable por un admin en el panel Industriales). Los precios del catálogo ya llevan el coeficiente aplicado → ya son precio final (no se vuelve a aplicar).",
@@ -24604,5 +24607,5 @@ window.EMP_PREUS = {
 openPreus: openPreus
 };
 })();</script>
-<script src="demo-extres.js?v=1"></script></body>
+<script src="demo-extres.js?v=2"></script></body>
 </html>

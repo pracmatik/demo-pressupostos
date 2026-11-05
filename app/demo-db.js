@@ -1,15 +1,32 @@
 /* ══════════════════════════════════════════════════════════════════════
    DEMOSTRACIÓ · base de dades en memòria, sense servidor
    Substitueix la connexió real. Tot el que es veu és inventat i viu només
-   al navegador de qui obre la pàgina: si es recarrega, torna a l'inici.
+   al navegador de qui obre la pàgina. El que hi feu es desa en aquest mateix
+   navegador (no surt de l'ordinador) i es pot reiniciar quan vulgueu.
    No hi ha cap adreça ni cap clau de cap servidor.
    ══════════════════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
   const SEED = window.DEMO_SEED || {};
+  const CLAU = 'pracmatik_demo_pressupostos_' + (SEED.versio || '1');
+  let guardat = null;
+  try { guardat = JSON.parse(localStorage.getItem(CLAU) || 'null'); } catch (_) { guardat = null; }
   const DB = {};
-  Object.keys(SEED.taules || {}).forEach(t => { DB[t] = JSON.parse(JSON.stringify(SEED.taules[t])); });
+  const origen = guardat && typeof guardat === 'object' && guardat.precios ? guardat : SEED.taules || {};
+  Object.keys(origen).forEach(t => { DB[t] = JSON.parse(JSON.stringify(origen[t])); });
   window.DEMO_DB = DB;
+  window.DEMO_RECUPERAT = !!(guardat && guardat.precios);
+
+  /* es desa cada canvi al navegador; si no es pot (navegació privada, espai), es diu */
+  let _t = null;
+  function desa() {
+    clearTimeout(_t);
+    _t = setTimeout(() => {
+      try { localStorage.setItem(CLAU, JSON.stringify(DB)); window.DEMO_DESA_ERROR = null; }
+      catch (e) { window.DEMO_DESA_ERROR = e && e.name || 'error'; console.warn('[demo] no s\'ha pogut desar al navegador:', e); }
+    }, 250);
+  }
+  window.DEMO_REINICIA = function () { try { localStorage.removeItem(CLAU); } catch (_) {} location.reload(); };
 
   const USER = { id: '00000000-0000-4000-8000-000000000001', email: 'demo@constructora.demo',
     app_metadata: { role: 'admin' }, user_metadata: { nombre: 'Usuari demo' } };
@@ -117,6 +134,7 @@
       });
     }
     else if (this.op === 'delete') { files = this._files(); DB[this.t] = T.filter(f => !files.includes(f)); }
+    if (this.op !== 'select') desa();
     files = files.slice();
     this.ordres.slice().reverse().forEach(o => files.sort((a, b) => { const x = valor(a, o.col), y = valor(b, o.col); if (x == null) return 1; if (y == null) return -1; return (x < y ? -1 : x > y ? 1 : 0) * (o.asc ? 1 : -1); }));
     const total = files.length;

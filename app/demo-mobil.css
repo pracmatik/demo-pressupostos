@@ -35,7 +35,10 @@ img,svg,canvas{max-width:100%}
   #tb tr.part td.preu{display:block}
   #tb tr.part td.calc{display:none}
   #tb tr.part td.imp{grid-column:1/-1;font-weight:700;font-size:16px}
-  #tb tr.part td.act{grid-column:1/-1;display:flex!important;flex-wrap:wrap;gap:6px}
+  #tb tr.part td.act{grid-column:1/-1;display:none!important;flex-wrap:wrap;gap:6px}
+  #tb tr.part:focus-within td.act,#tb tr.part:hover td.act{display:flex!important}
+  #tb tr.part{padding:10px 12px!important;gap:4px 10px}
+  #tb tr.part td.desc textarea{min-height:0!important}
 
   #tb tr.cap,#tb tr.sec{display:flex;flex-wrap:wrap;gap:4px 10px;padding:12px!important}
   #tb tr.cap td.num,#tb tr.sec td.num{flex:0 0 auto}
