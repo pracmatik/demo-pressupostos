@@ -1,0 +1,131 @@
+~V|PRACMATIK DEMO|FIEBDC-3/2016|Demo Pracmatik||ANSI|
+~K|\2\2\3\2\2\2\2\EUR\|
+~C|DEMO##||Reforma d'oficines · Planta 3 (exemple)||||
+~D|DEMO##|01#\1\1\02#\1\1\03#\1\1\04#\1\1\05#\1\1\06#\1\1\07#\1\1\08#\1\1\09#\1\1\|
+~C|01#||ENDERROCS I TREBALLS PREVIS||||
+~D|01#|01.01\1\86.4\01.02\1\312\01.03\1\298.5\01.04\1\9\01.05\1\38\|
+~C|01.01|m2|Enderroc d'envans existents de maó, inclosa la càrrega a contenidor|0|||
+~T|01.01|Enderroc d'envans existents de maó, inclosa la càrrega a contenidor|
+~M|01#\01.01|1\|86.4|\Enderroc d'envans existents de maó, incl\1\\\\|
+~C|01.02|m2|Arrencada del paviment de terratzo existent amb el morter d'agafada|0|||
+~T|01.02|Arrencada del paviment de terratzo existent amb el morter d'agafada|
+~M|01#\01.02|1\|312|\Arrencada del paviment de terratzo exist\1\\\\|
+~C|01.03|m2|Desmuntatge del fals sostre modular existent|0|||
+~T|01.03|Desmuntatge del fals sostre modular existent|
+~M|01#\01.03|1\|298.5|\Desmuntatge del fals sostre modular exis\1\\\\|
+~C|01.04|ut|Desmuntatge de portes interiors amb el seu bastiment|0|||
+~T|01.04|Desmuntatge de portes interiors amb el seu bastiment|
+~M|01#\01.04|1\|9|\Desmuntatge de portes interiors amb el s\1\\\\|
+~C|01.05|m3|Transport de runa a abocador autoritzat, cànon inclòs|0|||
+~T|01.05|Transport de runa a abocador autoritzat, cànon inclòs|
+~M|01#\01.05|1\|38|\Transport de runa a abocador autoritzat,\1\\\\|
+~C|02#||ENVANS I TRASDOSSATS||||
+~D|02#|02.01\1\164.3\02.02\1\72.8\02.03\1\118.2\02.04\1\14\|
+~C|02.01|m2|Envà de placa de guix laminat 15+46+15 amb aïllament de llana mineral|0|||
+~T|02.01|Envà de placa de guix laminat 15+46+15 amb aïllament de llana mineral|
+~M|02#\02.01|1\|164.3|\Envà de placa de guix laminat 15+46+15 a\1\\\\|
+~C|02.02|m2|Envà acústic de doble placa amb llana mineral a les sales de reunions|0|||
+~T|02.02|Envà acústic de doble placa amb llana mineral a les sales de reunions|
+~M|02#\02.02|1\|72.8|\Envà acústic de doble placa amb llana mi\1\\\\|
+~C|02.03|m2|Trasdossat de placa de guix laminat de 15 mm a la façana|0|||
+~T|02.03|Trasdossat de placa de guix laminat de 15 mm a la façana|
+~M|02#\02.03|1\|118.2|\Trasdossat de placa de guix laminat de 1\1\\\\|
+~C|02.04|ml|Reforç dins d'envà per penjar pantalles|0|||
+~T|02.04|Reforç dins d'envà per penjar pantalles|
+~M|02#\02.04|1\|14|\Reforç dins d'envà per penjar pantalles\1\\\\|
+~C|03#||FALSOS SOSTRES||||
+~D|03#|03.01\1\248.6\03.02\1\56.4\03.03\1\22.5\03.04\1\12\|
+~C|03.01|m2|Fals sostre registrable de plaques de 60x60 a la zona d'oficina|0|||
+~T|03.01|Fals sostre registrable de plaques de 60x60 a la zona d'oficina|
+~M|03#\03.01|1\|248.6|\Fals sostre registrable de plaques de 60\1\\\\|
+~C|03.02|m2|Fals sostre continu de placa de guix laminat a passadissos i banys|0|||
+~T|03.02|Fals sostre continu de placa de guix laminat a passadissos i banys|
+~M|03#\03.02|1\|56.4|\Fals sostre continu de placa de guix lam\1\\\\|
+~C|03.03|m2|Fals sostre acústic de llistons de fusta a la recepció|0|||
+~T|03.03|Fals sostre acústic de llistons de fusta a la recepció|
+~M|03#\03.03|1\|22.5|\Fals sostre acústic de llistons de fusta\1\\\\|
+~C|03.04|ut|Tapes de registre de 60x60|0|||
+~T|03.04|Tapes de registre de 60x60|
+~M|03#\03.04|1\|12|\Tapes de registre de 60x60\1\\\\|
+~C|04#||PAVIMENTS||||
+~D|04#|04.01\1\312\04.02\1\236.4\04.03\1\54.2\04.04\1\21.4\04.05\1\186\|
+~C|04.01|m2|Regularització del suport amb morter autoanivellant|0|||
+~T|04.01|Regularització del suport amb morter autoanivellant|
+~M|04#\04.01|1\|312|\Regularització del suport amb morter aut\1\\\\|
+~C|04.02|m2|Paviment vinílic LVT en llosetes, enganxat|0|||
+~T|04.02|Paviment vinílic LVT en llosetes, enganxat|
+~M|04#\04.02|1\|236.4|\Paviment vinílic LVT en llosetes, enganx\1\\\\|
+~C|04.03|m2|Moqueta en llosetes de 50x50 a les sales de reunions|0|||
+~T|04.03|Moqueta en llosetes de 50x50 a les sales de reunions|
+~M|04#\04.03|1\|54.2|\Moqueta en llosetes de 50x50 a les sales\1\\\\|
+~C|04.04|m2|Paviment de gres porcellànic de 60x60 a banys i office|0|||
+~T|04.04|Paviment de gres porcellànic de 60x60 a banys i office|
+~M|04#\04.04|1\|21.4|\Paviment de gres porcellànic de 60x60 a \1\\\\|
+~C|04.05|ml|Sòcol d'alumini de 7 cm|0|||
+~T|04.05|Sòcol d'alumini de 7 cm|
+~M|04#\04.05|1\|186|\Sòcol d'alumini de 7 cm\1\\\\|
+~C|05#||FUSTERIA I VIDRES||||
+~D|05#|05.01\1\7\05.02\1\48.6\05.03\1\2\05.04\1\16.8\05.05\1\38\|
+~C|05.01|ut|Porta de fusta lacada de 82,5x210 amb ferramenta|0|||
+~T|05.01|Porta de fusta lacada de 82,5x210 amb ferramenta|
+~M|05#\05.01|1\|7|\Porta de fusta lacada de 82,5x210 amb fe\1\\\\|
+~C|05.02|m2|Mampara de vidre laminat 5+5 als despatxos amb perfil d'alumini|0|||
+~T|05.02|Mampara de vidre laminat 5+5 als despatxos amb perfil d'alumini|
+~M|05#\05.02|1\|48.6|\Mampara de vidre laminat 5+5 als despatx\1\\\\|
+~C|05.03|ut|Porta de vidre temperat de 10 mm a la sala de reunions|0|||
+~T|05.03|Porta de vidre temperat de 10 mm a la sala de reunions|
+~M|05#\05.03|1\|2|\Porta de vidre temperat de 10 mm a la sa\1\\\\|
+~C|05.04|m2|Mampara acústica mòbil plegable entre sales|0|||
+~T|05.04|Mampara acústica mòbil plegable entre sales|
+~M|05#\05.04|1\|16.8|\Mampara acústica mòbil plegable entre sa\1\\\\|
+~C|05.05|ml|Vinil decoratiu a les mampares|0|||
+~T|05.05|Vinil decoratiu a les mampares|
+~M|05#\05.05|1\|38|\Vinil decoratiu a les mampares\1\\\\|
+~C|06#||PINTURA||||
+~D|06#|06.01\1\642\06.02\1\56.4\|
+~C|06.01|m2|Pintura plàstica llisa en parets, dues mans|0|||
+~T|06.01|Pintura plàstica llisa en parets, dues mans|
+~M|06#\06.01|1\|642|\Pintura plàstica llisa en parets, dues m\1\\\\|
+~C|06.02|m2|Pintura plàstica en sostres continus|0|||
+~T|06.02|Pintura plàstica en sostres continus|
+~M|06#\06.02|1\|56.4|\Pintura plàstica en sostres continus\1\\\\|
+~C|07#||ELECTRICITAT I IL·LUMINACIÓ||||
+~D|07#|07.01\1\64\07.02\1\28\07.03\1\14\07.04\1\24\07.05\1\48\07.06\1\2\|
+~C|07.01|ut|Lluminària LED encastada de 60x60|0|||
+~T|07.01|Lluminària LED encastada de 60x60|
+~M|07#\07.01|1\|64|\Lluminària LED encastada de 60x60\1\\\\|
+~C|07.02|ut|Downlight LED de 15 W als passadissos|0|||
+~T|07.02|Downlight LED de 15 W als passadissos|
+~M|07#\07.02|1\|28|\Downlight LED de 15 W als passadissos\1\\\\|
+~C|07.03|ut|Lluminària d'emergència LED|0|||
+~T|07.03|Lluminària d'emergència LED|
+~M|07#\07.03|1\|14|\Lluminària d'emergència LED\1\\\\|
+~C|07.04|ut|Caixa de sòl amb preses de corrent i de dades|0|||
+~T|07.04|Caixa de sòl amb preses de corrent i de dades|
+~M|07#\07.04|1\|24|\Caixa de sòl amb preses de corrent i de \1\\\\|
+~C|07.05|ut|Punt de dades RJ45 categoria 6|0|||
+~T|07.05|Punt de dades RJ45 categoria 6|
+~M|07#\07.05|1\|48|\Punt de dades RJ45 categoria 6\1\\\\|
+~C|07.06|ut|Pantalla interactiva de 75 polzades a la sala de reunions, subministrament i muntatge|0|||
+~T|07.06|Pantalla interactiva de 75 polzades a la sala de reunions, subministrament i muntatge|
+~M|07#\07.06|1\|2|\Pantalla interactiva de 75 polzades a la\1\\\\|
+~C|08#||CLIMATITZACIÓ||||
+~D|08#|08.01\1\32\08.02\1\18\08.03\1\12\|
+~C|08.01|ml|Reixa lineal d'impulsió|0|||
+~T|08.01|Reixa lineal d'impulsió|
+~M|08#\08.01|1\|32|\Reixa lineal d'impulsió\1\\\\|
+~C|08.02|ut|Difusor rotacional de 600x600|0|||
+~T|08.02|Difusor rotacional de 600x600|
+~M|08#\08.02|1\|18|\Difusor rotacional de 600x600\1\\\\|
+~C|08.03|ut|Reixa de retorn de 600x600|0|||
+~T|08.03|Reixa de retorn de 600x600|
+~M|08#\08.03|1\|12|\Reixa de retorn de 600x600\1\\\\|
+~C|09#||SEGURETAT I NETEJA||||
+~D|09#|09.01\1\1\09.02\1\312\|
+~C|09.01|ut|Seguretat i salut de l'obra|0|||
+~T|09.01|Seguretat i salut de l'obra|
+~M|09#\09.01|1\|1|\Seguretat i salut de l'obra\1\\\\|
+~C|09.02|m2|Neteja final|0|||
+~T|09.02|Neteja final|
+~M|09#\09.02|1\|312|\Neteja final\1\\\\|
+
